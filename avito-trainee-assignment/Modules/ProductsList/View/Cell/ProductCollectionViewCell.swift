@@ -34,12 +34,14 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     private lazy var locationLabel: UILabel = {
         let label = UILabel()
         label.font = R.Fonts.systemRegular(with: 17)
+        label.textColor = .gray
         return label
     }()
     
-    private lazy var dataLabel: UILabel = {
+    private lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.font = R.Fonts.systemRegular(with: 17)
+        label.textColor = .gray
         return label
     }()
     
@@ -84,7 +86,7 @@ final class ProductCollectionViewCell: UICollectionViewCell {
             buttonStackView
         ])
         stackView.spacing = 5
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .equalSpacing
         stackView.alignment = .top
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -93,13 +95,15 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     private lazy var secondaryTextStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             locationLabel,
-            dataLabel
+            dateLabel
         ])
         stackView.axis = .vertical
         stackView.spacing = 2
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -110,6 +114,8 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Setup
     
     private func setup() {
         contentView.addSubview(productImageView)
@@ -122,8 +128,8 @@ final class ProductCollectionViewCell: UICollectionViewCell {
             productImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             productImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             productImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            productImageView.heightAnchor.constraint(equalToConstant: contentView.bounds.width),
-            
+            productImageView.heightAnchor.constraint(equalTo: contentView.widthAnchor),
+
             mainStackView.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 5),
             mainStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             mainStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -135,37 +141,17 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func configureCell() {
-        productImageView.image = UIImage(named: "iphone")
-        titleLabel.text = "Фигурка из аниме стальной алхимик"
-        
-        priceLabel.text = "55000 Р."
-        locationLabel.text = "р-н Советский"
-        dataLabel.text = "Сегодня, 13:03"
-    }
-}
-
-enum R {
-    enum Colors {
-        
-    }
-    
-    enum Strings {
-        static let recommendations = "Рекомендации"
-    }
-    
-    enum Fonts {
-        static func systemRegular(with size: CGFloat) -> UIFont {
-            UIFont.systemFont(ofSize: size, weight: .regular)
-        }
-        
-        static func systemBold(with size: CGFloat) -> UIFont {
-            UIFont.systemFont(ofSize: size, weight: .bold)
-        }
-    }
-    
-    enum Image {
-        static let heart = UIImage(systemName: "heart")
-        static let ellipsis = UIImage(systemName: "ellipsis")
+    func configureCell(
+        imageUrl: String,
+        title: String,
+        price: String,
+        location: String,
+        date: String
+    ) {
+        productImageView.loadImage(imageUrl)
+        titleLabel.text = title
+        priceLabel.text = price
+        locationLabel.text = location
+        dateLabel.text = date
     }
 }

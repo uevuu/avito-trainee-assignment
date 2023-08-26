@@ -8,6 +8,7 @@
 import UIKit
 
 final class ProductsListViewController: UIViewController {
+    private let output: ProductsListViewOutput
     
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(
@@ -17,21 +18,21 @@ final class ProductsListViewController: UIViewController {
                     let item = NSCollectionLayoutItem(
                         layoutSize: NSCollectionLayoutSize(
                             widthDimension: .fractionalWidth(0.5),
-                            heightDimension: .estimated(150)
+                            heightDimension: .estimated(500)
                         )
                     )
                     item.edgeSpacing = NSCollectionLayoutEdgeSpacing(
-                        leading: .none,
+                        leading: .fixed(0),
                         top: .fixed(16),
-                        trailing: .none,
-                        bottom: .none
+                        trailing: .fixed(0),
+                        bottom: .fixed(0)
                     )
                     item.contentInsets.leading = 6
                     item.contentInsets.trailing = 6
                     let group = NSCollectionLayoutGroup.horizontal(
                         layoutSize: NSCollectionLayoutSize(
                             widthDimension: .fractionalWidth(1),
-                            heightDimension: .estimated(150)
+                            heightDimension: .estimated(500)
                         ),
                         subitems: [item]
                     )
@@ -67,7 +68,8 @@ final class ProductsListViewController: UIViewController {
     
     // MARK: - Init
     
-    init() {
+    init(output: ProductsListViewOutput) {
+        self.output = output
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -79,6 +81,7 @@ final class ProductsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        output.viewDidLoadEvent()
         setup()
         setConstraints()
     }
@@ -100,12 +103,13 @@ final class ProductsListViewController: UIViewController {
     }
 }
 
+//MARK: - UICollectionViewDataSource
 extension ProductsListViewController: UICollectionViewDataSource{
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 20
+        return output.getAdvertisementsCount()
     }
     
     func collectionView(
@@ -123,66 +127,30 @@ extension ProductsListViewController: UICollectionViewDataSource{
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(ProductCollectionViewCell.self, for: indexPath)
-        cell.configureCell()
+        let advertisement = output.getAdvertisement(at: indexPath)
+        cell.configureCell(
+            imageUrl: advertisement.imageUrl,
+            title: advertisement.title,
+            price: advertisement.price,
+            location: advertisement.location,
+            date: advertisement.createdDate
+        )
         return cell
     }
 }
 
-extension ProductsListViewController: UICollectionViewDelegate{
-}
-
-final class CacheManager {
-    static let shared = CacheManager()
-    
-    private let cache = NSCache<NSString, UIImage>()
-    private init() {}
-    
-    func image(forKey key: String) async -> UIImage? {
-        let cacheKey = NSString(string: key)
-        if let image = cache.object(forKey: cacheKey) { return image }
-        
-        guard let url = URL(string: key),
-              let result = try? await URLSession.shared.data(from: url),
-              let image = UIImage(data: result.0) else { return nil }
-        
-        cache.setObject(image, forKey: cacheKey)
-        
-        return image
+// MARK: - UICollectionViewDelegate
+extension ProductsListViewController: UICollectionViewDelegate {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        output.tapOnProduct(at: indexPath)
     }
 }
 
-final class HeaderTextLabel: UICollectionReusableView {
-    
-    private lazy var headerLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemBold(with: 25)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setupView()
-        setConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView() {
-        addSubview(headerLabel)
-    }
-    
-    private func setConstraints() {
-        NSLayoutConstraint.activate([
-            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            headerLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-        ])
-    }
-    
-    func setTitle(_ title: String) {
-        headerLabel.text = title
+extension ProductsListViewController: ProductsListViewInput {
+    func reloadCollectionView() {
+        collectionView.reloadData()
     }
 }

@@ -14,4 +14,13 @@ struct Advertisement: Codable {
     let location: String
     let imageUrl: String
     let createdDate: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case price
+        case location
+        case imageUrl = "image_url"
+        case createdDate = "created_date"
+    }
 }
