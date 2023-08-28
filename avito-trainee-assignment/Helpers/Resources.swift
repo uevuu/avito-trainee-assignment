@@ -24,6 +24,10 @@ enum R {
         static func systemBold(with size: CGFloat) -> UIFont {
             UIFont.systemFont(ofSize: size, weight: .bold)
         }
+        
+        static func systemSemiBold(with size: CGFloat) -> UIFont {
+            UIFont.systemFont(ofSize: size, weight: .semibold)
+        }
     }
     
     enum Image {

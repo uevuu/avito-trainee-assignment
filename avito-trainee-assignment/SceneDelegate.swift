@@ -9,6 +9,7 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    private var rootCoordinator: ProductsListCoordinator?
 
     func scene(
         _ scene: UIScene,
@@ -17,11 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.makeKeyAndVisible()
-        let presenter = ProductsListPresenter(advertisementNetworkService: AdvertisementNetworkService())
-        let viewController = ProductsListViewController(output: presenter)
-        presenter.view = viewController
-        window.rootViewController = viewController
+        
+        rootCoordinator = ProductsListCoordinator(window: window)
+        rootCoordinator?.start()
         self.window = window
     }
 

@@ -10,13 +10,17 @@ import Foundation
 // MARK: - ProductsListPresenter
 final class ProductsListPresenter {
     weak var view: ProductsListViewInput?
+    private let output: ProductsListPresenterOutput
     private let advertisementNetworkService: AdvertisementNetworkService
     private var advertisements: [Advertisement] = []
     
-    init(advertisementNetworkService: AdvertisementNetworkService) {
+    init(
+        output: ProductsListPresenterOutput,
+        advertisementNetworkService: AdvertisementNetworkService
+    ) {
+        self.output = output
         self.advertisementNetworkService = advertisementNetworkService
     }
-    
 }
 
 // MARK: - ProductsListViewOutput
@@ -44,6 +48,6 @@ extension ProductsListPresenter: ProductsListViewOutput {
     }
     
     func tapOnProduct(at indexPath: IndexPath) {
-        print(advertisements[indexPath.item].title)
+        output.goToProductInfoModule(id: advertisements[indexPath.item].id)
     }
 }

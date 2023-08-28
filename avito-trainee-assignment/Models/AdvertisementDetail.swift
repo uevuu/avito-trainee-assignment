@@ -12,10 +12,23 @@ struct AdvertisementDetail: Codable {
     let title: String
     let price: String
     let location: String
-    let image_url: String
-    let created_date: String
+    let imageUrl: String
+    let createdDate: String
     let description: String
     let email: String
-    let phone_number: String
+    let phoneNumber: String
     let address: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case price
+        case location
+        case imageUrl = "image_url"
+        case createdDate = "created_date"
+        case description
+        case email
+        case phoneNumber = "phone_number"
+        case address
+    }
 }

@@ -86,37 +86,20 @@ extension UIImageView {
             image = imageFromCache
             return
         }
-        
+
         guard let url = URL(string: urlString) else { return }
+        let request = URLRequest(
+            url: url,
+            cachePolicy: .returnCacheDataElseLoad
+        )
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, let newImage = UIImage(data: data) else{
-                print("Couldn't load image from url: \(url)")
-                return
-            }
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, let newImage = UIImage(data: data) else { return }
             UIImageView.imageCache.setObject(newImage, forKey: urlString as NSString)
             DispatchQueue.main.async {
                 self.image = newImage
             }
         }.resume()
-    }
-    
-    func downloadedFrom(url: URL) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() { () -> Void in
-                self.image = image
-            }
-            }.resume()
-    }
-    func downloadedFrom(link: String) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url)
     }
 }
 
@@ -130,7 +113,7 @@ final class AdvertisementNetworkService {
     
     func getAdvertisement(
         id: String,
-        completion: @escaping(Result<Advertisement, RequestError>) -> Void
+        completion: @escaping(Result<AdvertisementDetail, RequestError>) -> Void
     ) {
         networkService.sendRequest(endpoint: "/details/\(id).json", completion: completion)
     }
