@@ -11,6 +11,26 @@ import UIKit
 final class ProductViewController: UIViewController {
     private let output: ProductViewOutput
     
+    private lazy var spinnerView: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.hidesWhenStopped = true
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
+    private lazy var reloadButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.blue, for: .normal)
+        button.setTitle("Попробуйте еще раз", for: .normal)
+        button.addTarget(
+            self,
+            action: #selector(reloadButtonTapped),
+            for: .touchUpInside
+        )
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -159,6 +179,8 @@ final class ProductViewController: UIViewController {
     
     private func setup() {
         view.backgroundColor = .white
+        view.addSubview(spinnerView)
+        view.addSubview(reloadButton)
         view.addSubview(scrollView)
         scrollView.addSubview(productImageView)
         scrollView.addSubview(infoStackView)
@@ -179,7 +201,13 @@ final class ProductViewController: UIViewController {
             infoStackView.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 20),
             infoStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             infoStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            infoStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20)
+            infoStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20),
+            
+            reloadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            reloadButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            spinnerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            spinnerView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
     
@@ -187,10 +215,19 @@ final class ProductViewController: UIViewController {
     @objc private func backButtonTapped() {
         output.backToPreviosModule()
     }
+    
+    // MARK: - Private
+    
+    @objc private func reloadButtonTapped() {
+        output.tapOnReloadButton()
+    }
 }
 
 extension ProductViewController: ProductViewInput {
-    func setDetail(_ advertisementDetail: AdvertisementDetail) {
+    func showDetail(_ advertisementDetail: AdvertisementDetail) {
+        spinnerView.stopAnimating()
+        scrollView.isHidden = false
+        reloadButton.isHidden = true
         productImageView.loadImage(advertisementDetail.imageUrl)
         priceLabel.text = advertisementDetail.price
         titleLabel.text = advertisementDetail.title
@@ -203,5 +240,17 @@ extension ProductViewController: ProductViewInput {
         descriptionInfoLabel.text = advertisementDetail.description
         advertisementNumberLabel.text = "Объявления №\(advertisementDetail.id)"
         dateInfoLabel.text = advertisementDetail.createdDate
+    }
+    
+    func showError() {
+        spinnerView.stopAnimating()
+        reloadButton.isHidden = false
+        scrollView.isHidden = true
+    }
+    
+    func showLoading() {
+        spinnerView.startAnimating()
+        reloadButton.isHidden = true
+        scrollView.isHidden = true
     }
 }

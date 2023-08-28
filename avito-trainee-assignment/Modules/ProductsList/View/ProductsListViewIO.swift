@@ -9,8 +9,9 @@ import UIKit
 
 // MARK: - ProductsListViewInput
 protocol ProductsListViewInput: AnyObject {
-    func reloadCollectionView()
-//    func showError(_ type: RequestError)
+    func showProducts()
+    func showError()
+    func showLoading()
 }
 
 // MARK: - ProductsListViewOutput
@@ -19,4 +20,5 @@ protocol ProductsListViewOutput: AnyObject {
     func getAdvertisementsCount() -> Int
     func getAdvertisement(at indexPath: IndexPath) -> Advertisement
     func tapOnProduct(at indexPath: IndexPath)
+    func tapOnReloadButton()
 }

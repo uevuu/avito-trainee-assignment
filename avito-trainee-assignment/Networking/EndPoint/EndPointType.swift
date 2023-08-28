@@ -10,8 +10,6 @@ import UIKit
 enum EndPoint: String {
     case advertisement = "/main-page.json"
     case advertisements = "/dateils"
-    
-    
 }
 
 enum HTTPMethod: String {
@@ -39,6 +37,7 @@ enum RequestError: Error {
     }
 }
 
+// MARK: - NetworkService
 final class NetworkService {
     private let baseURL: String
     
@@ -118,4 +117,3 @@ final class AdvertisementNetworkService {
         networkService.sendRequest(endpoint: "/details/\(id).json", completion: completion)
     }
 }
-

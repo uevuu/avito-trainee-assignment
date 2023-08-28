@@ -24,25 +24,37 @@ final class ProductPresenter {
         self.advertisementId = advertisementId
         self.advertisementNetworkService = advertisementNetworkService
     }
-}
-
-// MARK: - ProductViewOutput
-extension ProductPresenter: ProductViewOutput {
-    func viewDidLoadEvent() {
+    
+    private func getAdvertisementDetail() {
         advertisementNetworkService.getAdvertisement(id: advertisementId) { [weak self] result in
             switch result {
             case .success(let detail):
                 self?.advertisementDetail = detail
                 DispatchQueue.main.async {
-                    self?.view?.setDetail(detail)
+                    self?.view?.showDetail(detail)
                 }
-            case .failure(let error):
-                print(error.message)
+            case .failure:
+                DispatchQueue.main.async {
+                    self?.view?.showError()
+                }
             }
         }
+    }
+}
+
+// MARK: - ProductViewOutput
+extension ProductPresenter: ProductViewOutput {
+    func viewDidLoadEvent() {
+        view?.showLoading()
+        getAdvertisementDetail()
     }
     
     func backToPreviosModule() {
         output.goToPreviousModule()
+    }
+    
+    func tapOnReloadButton() {
+        view?.showLoading()
+        getAdvertisementDetail()
     }
 }

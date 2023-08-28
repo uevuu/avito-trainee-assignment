@@ -7,8 +7,34 @@
 
 import UIKit
 
+enum ViewState {
+    case loading
+    case displayingData
+    case error
+}
+
 final class ProductsListViewController: UIViewController {
     private let output: ProductsListViewOutput
+    
+    private lazy var spinnerView: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.hidesWhenStopped = true
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
+    private lazy var reloadButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.blue, for: .normal)
+        button.setTitle("Попробуйте еще раз", for: .normal)
+        button.addTarget(
+            self,
+            action: #selector(reloadButtonTapped),
+            for: .touchUpInside
+        )
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(
@@ -85,11 +111,23 @@ final class ProductsListViewController: UIViewController {
         setup()
         setConstraints()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     
     // MARK: - Setup
     
     private func setup() {
         view.backgroundColor = .white
+        view.addSubview(spinnerView)
+        view.addSubview(reloadButton)
         view.addSubview(collectionView)
     }
     
@@ -98,8 +136,20 @@ final class ProductsListViewController: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            reloadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            reloadButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            spinnerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            spinnerView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+    }
+    
+    // MARK: - Private
+    
+    @objc private func reloadButtonTapped() {
+        output.tapOnReloadButton()
     }
 }
 
@@ -149,8 +199,24 @@ extension ProductsListViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - ProductsListViewInput
 extension ProductsListViewController: ProductsListViewInput {
-    func reloadCollectionView() {
+    func showProducts() {
         collectionView.reloadData()
+        spinnerView.stopAnimating()
+        reloadButton.isHidden = true
+        collectionView.isHidden = false
+    }
+    
+    func showError() {
+        spinnerView.stopAnimating()
+        reloadButton.isHidden = false
+        collectionView.isHidden = true
+    }
+    
+    func showLoading() {
+        spinnerView.startAnimating()
+        reloadButton.isHidden = true
+        collectionView.isHidden = true
     }
 }

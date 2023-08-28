@@ -9,13 +9,15 @@ import UIKit
 
 // MARK: - ProductViewInput
 protocol ProductViewInput: AnyObject {
-    func setDetail(_ advertisementDetail: AdvertisementDetail)
-//    func showError()
+    func showDetail(_ advertisementDetail: AdvertisementDetail)
+    func showError()
+    func showLoading()
 }
 
 // MARK: - ProductViewOutput
 protocol ProductViewOutput: AnyObject {
     func viewDidLoadEvent()
     func backToPreviosModule()
+    func tapOnReloadButton()
 }
 

@@ -21,22 +21,29 @@ final class ProductsListPresenter {
         self.output = output
         self.advertisementNetworkService = advertisementNetworkService
     }
-}
-
-// MARK: - ProductsListViewOutput
-extension ProductsListPresenter: ProductsListViewOutput {
-    func viewDidLoadEvent() {
+    
+    private func getAdvertisements() {
         advertisementNetworkService.getAdvertisements { [weak self] result in
             switch result {
             case .success(let response):
                 self?.advertisements = response.advertisements
                 DispatchQueue.main.async {
-                    self?.view?.reloadCollectionView()
+                    self?.view?.showProducts()
                 }
-            case .failure(let error):
-                print(error.message)
+            case .failure:
+                DispatchQueue.main.async {
+                    self?.view?.showError()
+                }
             }
         }
+    }
+}
+
+// MARK: - ProductsListViewOutput
+extension ProductsListPresenter: ProductsListViewOutput {
+    func viewDidLoadEvent() {
+        view?.showLoading()
+        getAdvertisements()
     }
     
     func getAdvertisementsCount() -> Int {
@@ -49,5 +56,10 @@ extension ProductsListPresenter: ProductsListViewOutput {
     
     func tapOnProduct(at indexPath: IndexPath) {
         output.goToProductInfoModule(id: advertisements[indexPath.item].id)
+    }
+    
+    func tapOnReloadButton() {
+        view?.showLoading()
+        getAdvertisements()
     }
 }
