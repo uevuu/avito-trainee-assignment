@@ -14,6 +14,7 @@ enum R {
     
     enum Strings {
         static let recommendations = "Рекомендации"
+        static let tryAgain = "Попробуй еще раз"
     }
     
     enum Fonts {
@@ -33,5 +34,9 @@ enum R {
     enum Image {
         static let heart = UIImage(systemName: "heart")
         static let ellipsis = UIImage(systemName: "ellipsis")
+        static let chevronBackward = UIImage(systemName: "chevron.backward")
+        static let cartBadgePlus = UIImage(systemName: "cart.badge.plus")
+        static let squareAndArrowUp = UIImage(systemName: "square.and.arrow.up")
+        
     }
 }

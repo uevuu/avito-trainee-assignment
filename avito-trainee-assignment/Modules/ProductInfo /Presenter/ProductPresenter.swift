@@ -11,18 +11,18 @@ import Foundation
 final class ProductPresenter {
     weak var view: ProductViewInput?
     private let output: ProductPresenterOutput
-    private let advertisementNetworkService: AdvertisementNetworkService
+    private let advertisementDetailNetworkService: AdvertisementDetailNetworkService
     private let advertisementId: String
     private var advertisementDetail: AdvertisementDetail?
     
     init(
         output: ProductPresenterOutput,
         advertisementId: String,
-        advertisementNetworkService: AdvertisementNetworkService
+        advertisementDetailNetworkService: AdvertisementDetailNetworkService
     ) {
         self.output = output
         self.advertisementId = advertisementId
-        self.advertisementNetworkService = advertisementNetworkService
+        self.advertisementDetailNetworkService = advertisementDetailNetworkService
     }
 }
 
@@ -30,7 +30,7 @@ final class ProductPresenter {
 extension ProductPresenter: ProductViewOutput {
     func loadData() {
         view?.showLoading()
-        advertisementNetworkService.getAdvertisement(id: advertisementId) { [weak self] result in
+        advertisementDetailNetworkService.getAdvertisement(id: advertisementId) { [weak self] result in
             switch result {
             case .success(let detail):
                 self?.advertisementDetail = detail

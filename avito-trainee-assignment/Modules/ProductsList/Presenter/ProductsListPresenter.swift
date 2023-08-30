@@ -11,15 +11,15 @@ import Foundation
 final class ProductsListPresenter {
     weak var view: ProductsListViewInput?
     private let output: ProductsListPresenterOutput
-    private let advertisementNetworkService: AdvertisementNetworkService
+    private let advertisementsNetworkService: AdvertisementsNetworkService
     private var advertisements: [Advertisement] = []
     
     init(
         output: ProductsListPresenterOutput,
-        advertisementNetworkService: AdvertisementNetworkService
+        advertisementsNetworkService: AdvertisementsNetworkService
     ) {
         self.output = output
-        self.advertisementNetworkService = advertisementNetworkService
+        self.advertisementsNetworkService = advertisementsNetworkService
     }
 }
 
@@ -27,7 +27,7 @@ final class ProductsListPresenter {
 extension ProductsListPresenter: ProductsListViewOutput {
     func loadData() {
         view?.showLoading()
-        advertisementNetworkService.getAdvertisements { [weak self] result in
+        advertisementsNetworkService.getAdvertisements { [weak self] result in
             switch result {
             case .success(let response):
                 self?.advertisements = response.advertisements

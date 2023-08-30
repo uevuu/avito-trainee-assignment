@@ -12,7 +12,7 @@ final class ProductsListViewController: UIViewController {
     private let output: ProductsListViewOutput
     
     private lazy var spinnerView = SpinnerView(style: .large)
-    private lazy var reloadButton = CommonButton("Попробуйте еще раз")
+    private lazy var reloadButton = CommonButton(R.Strings.tryAgain)
     
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(

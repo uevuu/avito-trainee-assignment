@@ -18,7 +18,7 @@ final class ProductViewController: UIViewController {
     }()
     
     private lazy var spinnerView = SpinnerView(style: .large)
-    private lazy var reloadButton = CommonButton("Попробуйте еще раз")
+    private lazy var reloadButton = CommonButton(R.Strings.tryAgain)
 
     private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
@@ -95,15 +95,15 @@ final class ProductViewController: UIViewController {
     
     private func configureNavigationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.backward"),
+            image: R.Image.chevronBackward,
             style: .plain,
             target: self,
             action: #selector(backButtonTapped)
         )
         navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(image: UIImage(systemName: "cart.badge.plus")),
-            UIBarButtonItem(image: UIImage(systemName: "heart")),
-            UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"))
+            UIBarButtonItem(image: R.Image.cartBadgePlus),
+            UIBarButtonItem(image: R.Image.heart),
+            UIBarButtonItem(image: R.Image.squareAndArrowUp)
         ]
         navigationController?.navigationBar.tintColor = .black
     }

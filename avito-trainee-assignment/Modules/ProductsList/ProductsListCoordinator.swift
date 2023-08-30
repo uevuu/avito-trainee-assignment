@@ -17,7 +17,10 @@ final class ProductsListCoordinator {
     }
     
     func start() {
-        let productListPresenter = ProductsListPresenter(output: self, advertisementNetworkService: AdvertisementNetworkService())
+        let productListPresenter = ProductsListPresenter(
+            output: self,
+            advertisementsNetworkService: AdvertisementsNetworkServiceImp()
+        )
         let productListViewController = ProductsListViewController(output: productListPresenter)
         productListPresenter.view = productListViewController
         let navigationController = UINavigationController(rootViewController: productListViewController)
@@ -55,7 +58,7 @@ final class ProductInfoCoordinator {
         let productInfoPresenter = ProductPresenter(
             output: self,
             advertisementId: productId,
-            advertisementNetworkService: AdvertisementNetworkService()
+            advertisementDetailNetworkService: AdvertisementDetailNetworkServiceImp()
         )
         let productInfoViewController = ProductViewController(output: productInfoPresenter)
         productInfoPresenter.view = productInfoViewController
