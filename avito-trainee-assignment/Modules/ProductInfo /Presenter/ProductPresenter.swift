@@ -24,8 +24,12 @@ final class ProductPresenter {
         self.advertisementId = advertisementId
         self.advertisementNetworkService = advertisementNetworkService
     }
-    
-    private func getAdvertisementDetail() {
+}
+
+// MARK: - ProductViewOutput
+extension ProductPresenter: ProductViewOutput {
+    func loadData() {
+        view?.showLoading()
         advertisementNetworkService.getAdvertisement(id: advertisementId) { [weak self] result in
             switch result {
             case .success(let detail):
@@ -40,21 +44,8 @@ final class ProductPresenter {
             }
         }
     }
-}
-
-// MARK: - ProductViewOutput
-extension ProductPresenter: ProductViewOutput {
-    func viewDidLoadEvent() {
-        view?.showLoading()
-        getAdvertisementDetail()
-    }
     
     func backToPreviosModule() {
         output.goToPreviousModule()
-    }
-    
-    func tapOnReloadButton() {
-        view?.showLoading()
-        getAdvertisementDetail()
     }
 }

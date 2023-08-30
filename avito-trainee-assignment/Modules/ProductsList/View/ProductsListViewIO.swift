@@ -16,9 +16,8 @@ protocol ProductsListViewInput: AnyObject {
 
 // MARK: - ProductsListViewOutput
 protocol ProductsListViewOutput: AnyObject {
-    func viewDidLoadEvent()
+    func loadData()
     func getAdvertisementsCount() -> Int
     func getAdvertisement(at indexPath: IndexPath) -> Advertisement
     func tapOnProduct(at indexPath: IndexPath)
-    func tapOnReloadButton()
 }

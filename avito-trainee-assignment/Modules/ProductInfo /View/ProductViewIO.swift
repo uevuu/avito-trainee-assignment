@@ -16,8 +16,7 @@ protocol ProductViewInput: AnyObject {
 
 // MARK: - ProductViewOutput
 protocol ProductViewOutput: AnyObject {
-    func viewDidLoadEvent()
+    func loadData()
     func backToPreviosModule()
-    func tapOnReloadButton()
 }
 

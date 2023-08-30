@@ -11,32 +11,15 @@ import UIKit
 final class ProductViewController: UIViewController {
     private let output: ProductViewOutput
     
-    private lazy var spinnerView: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(style: .large)
-        spinner.hidesWhenStopped = true
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        return spinner
-    }()
-    
-    private lazy var reloadButton: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(.blue, for: .normal)
-        button.setTitle("Попробуйте еще раз", for: .normal)
-        button.addTarget(
-            self,
-            action: #selector(reloadButtonTapped),
-            for: .touchUpInside
-        )
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
+    private lazy var spinnerView = SpinnerView(style: .large)
+    private lazy var reloadButton = CommonButton("Попробуйте еще раз")
+
     private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -44,18 +27,23 @@ final class ProductViewController: UIViewController {
         return imageView
     }()
     
-    private lazy var priceLabel: UILabel = {
-        let label = UILabel()
+    private lazy var priceLabel = CommonLabel(font: R.Fonts.systemBold(with: 30))
+    private lazy var titleLabel = CommonLabel(font: R.Fonts.systemSemiBold(with: 20))
+    private lazy var contactLabel = CommonLabel(font: R.Fonts.systemBold(with: 25))
+    private lazy var phoneInfoLabel = CommonLabel()
+    private lazy var emailInfoLabel = CommonLabel()
+    private lazy var addressLabel = CommonLabel(font: R.Fonts.systemBold(with: 25))
+    private lazy var addressInfoLabel = CommonLabel()
+    private lazy var descriptionLabel = CommonLabel(font: R.Fonts.systemBold(with: 25))
+    
+    private lazy var descriptionInfoLabel: CommonLabel = {
+        let label = CommonLabel()
         label.numberOfLines = 0
-        label.font = R.Fonts.systemBold(with: 30)
         return label
     }()
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemSemiBold(with: 20)
-        return label
-    }()
+    private lazy var advertisementNumberLabel = CommonSecondaryLabel()
+    private lazy var dateInfoLabel = CommonSecondaryLabel()
     
     private lazy var infoStackView: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [
@@ -81,63 +69,6 @@ final class ProductViewController: UIViewController {
         return stack
     }()
     
-    private lazy var contactLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemBold(with: 25)
-        return label
-    }()
-    
-    private lazy var phoneInfoLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemRegular(with: 17)
-        return label
-    }()
-    
-    private lazy var emailInfoLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemRegular(with: 17)
-        return label
-    }()
-    
-    private lazy var addressLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemBold(with: 25)
-        return label
-    }()
-    
-    private lazy var addressInfoLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemRegular(with: 17)
-        return label
-    }()
-    
-    private lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemBold(with: 25)
-        return label
-    }()
-    
-    private lazy var descriptionInfoLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = R.Fonts.systemRegular(with: 17)
-        return label
-    }()
-    
-    private lazy var advertisementNumberLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemRegular(with: 14)
-        label.textColor = .gray
-        return label
-    }()
-    
-    private lazy var dateInfoLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemRegular(with: 14)
-        label.textColor = .gray
-        return label
-    }()
-    
     // MARK: - Init
     
     init(output: ProductViewOutput) {
@@ -154,7 +85,7 @@ final class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        output.viewDidLoadEvent()
+        output.loadData()
         configureNavigationBar()
         setup()
         setConstraints()
@@ -178,6 +109,11 @@ final class ProductViewController: UIViewController {
     }
     
     private func setup() {
+        reloadButton.addTarget(
+            self,
+            action: #selector(reloadButtonTapped),
+            for: .touchUpInside
+        )
         view.backgroundColor = .white
         view.addSubview(spinnerView)
         view.addSubview(reloadButton)
@@ -216,13 +152,12 @@ final class ProductViewController: UIViewController {
         output.backToPreviosModule()
     }
     
-    // MARK: - Private
-    
     @objc private func reloadButtonTapped() {
-        output.tapOnReloadButton()
+        output.loadData()
     }
 }
 
+// MARK: - ProductViewInput
 extension ProductViewController: ProductViewInput {
     func showDetail(_ advertisementDetail: AdvertisementDetail) {
         spinnerView.stopAnimating()

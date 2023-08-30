@@ -9,12 +9,7 @@ import UIKit
 
 // MARK: - HeaderTextLabel
 final class HeaderTextLabel: UICollectionReusableView {
-    private lazy var headerLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemBold(with: 25)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private lazy var headerLabel = CommonLabel(font: R.Fonts.systemBold(with: 25))
     
     // MARK: - Init
     

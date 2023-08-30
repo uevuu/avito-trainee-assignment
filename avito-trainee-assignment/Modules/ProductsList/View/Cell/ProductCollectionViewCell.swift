@@ -18,32 +18,15 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         return imageView
         }()
         
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemRegular(with: 20)
+    private lazy var titleLabel: CommonLabel = {
+        let label = CommonLabel(font: R.Fonts.systemRegular(with: 20))
         label.numberOfLines = 2
         return label
     }()
         
-    private lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemBold(with: 20)
-        return label
-    }()
-    
-    private lazy var locationLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemRegular(with: 17)
-        label.textColor = .gray
-        return label
-    }()
-    
-    private lazy var dateLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.systemRegular(with: 17)
-        label.textColor = .gray
-        return label
-    }()
+    private lazy var priceLabel = CommonLabel(font: R.Fonts.systemBold(with: 20))
+    private lazy var locationLabel = CommonSecondaryLabel(font: R.Fonts.systemRegular(with: 17))
+    private lazy var dateLabel = CommonSecondaryLabel(font: R.Fonts.systemRegular(with: 17))
     
     private lazy var addToFavouriteButton: UIButton = {
         let button = UIButton()

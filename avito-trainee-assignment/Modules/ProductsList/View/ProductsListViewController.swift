@@ -7,34 +7,12 @@
 
 import UIKit
 
-enum ViewState {
-    case loading
-    case displayingData
-    case error
-}
-
+// MARK: - ProductsListViewController
 final class ProductsListViewController: UIViewController {
     private let output: ProductsListViewOutput
     
-    private lazy var spinnerView: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(style: .large)
-        spinner.hidesWhenStopped = true
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        return spinner
-    }()
-    
-    private lazy var reloadButton: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(.blue, for: .normal)
-        button.setTitle("Попробуйте еще раз", for: .normal)
-        button.addTarget(
-            self,
-            action: #selector(reloadButtonTapped),
-            for: .touchUpInside
-        )
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    private lazy var spinnerView = SpinnerView(style: .large)
+    private lazy var reloadButton = CommonButton("Попробуйте еще раз")
     
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(
@@ -107,7 +85,7 @@ final class ProductsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        output.viewDidLoadEvent()
+        output.loadData()
         setup()
         setConstraints()
     }
@@ -125,6 +103,11 @@ final class ProductsListViewController: UIViewController {
     // MARK: - Setup
     
     private func setup() {
+        reloadButton.addTarget(
+            self,
+            action: #selector(reloadButtonTapped),
+            for: .touchUpInside
+        )
         view.backgroundColor = .white
         view.addSubview(spinnerView)
         view.addSubview(reloadButton)
@@ -149,7 +132,7 @@ final class ProductsListViewController: UIViewController {
     // MARK: - Private
     
     @objc private func reloadButtonTapped() {
-        output.tapOnReloadButton()
+        output.loadData()
     }
 }
 
