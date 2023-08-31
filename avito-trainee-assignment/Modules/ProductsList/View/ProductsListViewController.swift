@@ -66,7 +66,7 @@ final class ProductsListViewController: UIViewController {
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.register(ProductCollectionViewCell.self)
         collection.registerHeader(HeaderTextLabel.self)
-        collection.backgroundColor = .white
+        collection.backgroundColor = R.Colors.background
         return collection
     }()
     
@@ -108,7 +108,7 @@ final class ProductsListViewController: UIViewController {
             action: #selector(reloadButtonTapped),
             for: .touchUpInside
         )
-        view.backgroundColor = .white
+        view.backgroundColor = R.Colors.background
         view.addSubview(spinnerView)
         view.addSubview(reloadButton)
         view.addSubview(collectionView)

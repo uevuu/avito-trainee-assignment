@@ -105,7 +105,7 @@ final class ProductViewController: UIViewController {
             UIBarButtonItem(image: R.Image.heart),
             UIBarButtonItem(image: R.Image.squareAndArrowUp)
         ]
-        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.tintColor = R.Colors.mainButton
     }
     
     private func setup() {
@@ -114,7 +114,7 @@ final class ProductViewController: UIViewController {
             action: #selector(reloadButtonTapped),
             for: .touchUpInside
         )
-        view.backgroundColor = .white
+        view.backgroundColor = R.Colors.background
         view.addSubview(spinnerView)
         view.addSubview(reloadButton)
         view.addSubview(scrollView)

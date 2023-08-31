@@ -10,6 +10,8 @@ import UIKit
 enum R {
     enum Colors {
         static let blue = UIColor(named: "blue")
+        static let background = UIColor(named: "background")
+        static let mainButton = UIColor(named: "mainButton")
     }
     
     enum Strings {
