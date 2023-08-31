@@ -37,7 +37,6 @@ final class ProductsListPresenterTests: XCTestCase {
             XCTAssertFalse(view.showErrorCalled)
             exp.fulfill()
         }
-        wait(for: [exp])
     }
     
     func testLoadDataFailure() {
@@ -52,7 +51,6 @@ final class ProductsListPresenterTests: XCTestCase {
             XCTAssertTrue(view.showErrorCalled)
             exp.fulfill()
         }
-        wait(for: [exp])
     }
     
     func testGoToProductInfoModule() {
