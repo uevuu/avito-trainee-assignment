@@ -8,6 +8,6 @@
 import Foundation
 
 // MARK: - ProductsListPresenterOutput
-protocol ProductsListPresenterOutput: AnyObject {
+public protocol ProductsListPresenterOutput: AnyObject {
     func goToProductInfoModule(id: String)
 }

@@ -33,42 +33,10 @@ final class ProductsListCoordinator {
 // MARK: - ProductsListPresenterOutput
 extension ProductsListCoordinator: ProductsListPresenterOutput {
     func goToProductInfoModule(id: String) {
-        let productInfoCoordinator = ProductInfoCoordinator(
+        let productInfoCoordinator = ProductCoordinator(
             productId: id,
             navigationController: navigationController
         )
         productInfoCoordinator.start(animated: true)
-    }
-}
-
-// MARK: - ProductInfoCoordinator
-final class ProductInfoCoordinator {
-    private let productId: String
-    private weak var navigationController: UINavigationController?
-    
-    init(
-        productId: String,
-        navigationController: UINavigationController?
-    ) {
-        self.productId = productId
-        self.navigationController = navigationController
-    }
-    
-    func start(animated: Bool) {
-        let productInfoPresenter = ProductPresenter(
-            output: self,
-            advertisementId: productId,
-            advertisementDetailNetworkService: AdvertisementDetailNetworkServiceImp()
-        )
-        let productInfoViewController = ProductViewController(output: productInfoPresenter)
-        productInfoPresenter.view = productInfoViewController
-        navigationController?.pushViewController(productInfoViewController, animated: animated)
-    }
-}
-
-// MARK: - ProductPresenterOutput
-extension ProductInfoCoordinator: ProductPresenterOutput {
-    func goToPreviousModule() {
-        navigationController?.popViewController(animated: true)
     }
 }

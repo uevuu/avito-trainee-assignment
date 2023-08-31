@@ -8,14 +8,14 @@
 import Foundation
 
 // MARK: - ProductPresenter
-final class ProductPresenter {
-    weak var view: ProductViewInput?
-    private let output: ProductPresenterOutput
-    private let advertisementDetailNetworkService: AdvertisementDetailNetworkService
-    private let advertisementId: String
+public final class ProductPresenter {
+    public weak var view: ProductViewInput?
     private var advertisementDetail: AdvertisementDetail?
+    private let output: ProductPresenterOutput
+    private let advertisementId: String
+    private let advertisementDetailNetworkService: AdvertisementDetailNetworkService
     
-    init(
+    public init(
         output: ProductPresenterOutput,
         advertisementId: String,
         advertisementDetailNetworkService: AdvertisementDetailNetworkService
@@ -28,7 +28,7 @@ final class ProductPresenter {
 
 // MARK: - ProductViewOutput
 extension ProductPresenter: ProductViewOutput {
-    func loadData() {
+    public func loadData() {
         view?.showLoading()
         advertisementDetailNetworkService.getAdvertisement(id: advertisementId) { [weak self] result in
             switch result {
@@ -45,7 +45,7 @@ extension ProductPresenter: ProductViewOutput {
         }
     }
     
-    func backToPreviosModule() {
+    public func backToPreviousModule() {
         output.goToPreviousModule()
     }
 }

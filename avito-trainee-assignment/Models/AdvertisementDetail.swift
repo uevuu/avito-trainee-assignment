@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AdvertisementDetail: Codable {
+public struct AdvertisementDetail: Decodable {
     let id: String
     let title: String
     let price: String
@@ -18,6 +18,30 @@ struct AdvertisementDetail: Codable {
     let email: String
     let phoneNumber: String
     let address: String
+    
+    public init(
+        id: String,
+        title: String,
+        price: String,
+        location: String,
+        imageUrl: String,
+        createdDate: String,
+        description: String,
+        email: String,
+        phoneNumber: String,
+        address: String
+    ) {
+        self.id = id
+        self.title = title
+        self.price = price
+        self.location = location
+        self.imageUrl = imageUrl
+        self.createdDate = createdDate
+        self.description = description
+        self.email = email
+        self.phoneNumber = phoneNumber
+        self.address = address
+    }
     
     enum CodingKeys: String, CodingKey {
         case id

@@ -15,7 +15,7 @@ final class NetworkService {
         self.baseURL = baseUrl
     }
 
-    func sendRequest<T: Codable>(
+    func sendRequest<T: Decodable>(
         endpoint: Endpoint,
         completion: @escaping(Result<T, RequestError>) -> Void
     ) {

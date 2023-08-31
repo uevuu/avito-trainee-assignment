@@ -7,6 +7,14 @@
 
 import Foundation
 
-struct Advertisements: Codable {
+public struct Advertisements: Decodable {
     let advertisements: [Advertisement]
+    
+    public init() {
+        self.advertisements = []
+    }
+    
+    public init(advertisements: [Advertisement]) {
+        self.advertisements = advertisements
+    }
 }

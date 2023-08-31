@@ -8,13 +8,13 @@
 import Foundation
 
 // MARK: - ProductsListPresenter
-final class ProductsListPresenter {
-    weak var view: ProductsListViewInput?
+public final class ProductsListPresenter {
+    public weak var view: ProductsListViewInput?
     private let output: ProductsListPresenterOutput
     private let advertisementsNetworkService: AdvertisementsNetworkService
     private var advertisements: [Advertisement] = []
     
-    init(
+    public init(
         output: ProductsListPresenterOutput,
         advertisementsNetworkService: AdvertisementsNetworkService
     ) {
@@ -25,7 +25,7 @@ final class ProductsListPresenter {
 
 // MARK: - ProductsListViewOutput
 extension ProductsListPresenter: ProductsListViewOutput {
-    func loadData() {
+    public func loadData() {
         view?.showLoading()
         advertisementsNetworkService.getAdvertisements { [weak self] result in
             switch result {
@@ -42,15 +42,15 @@ extension ProductsListPresenter: ProductsListViewOutput {
         }
     }
     
-    func getAdvertisementsCount() -> Int {
+    public func getAdvertisementsCount() -> Int {
         advertisements.count
     }
     
-    func getAdvertisement(at indexPath: IndexPath) -> Advertisement {
+    public func getAdvertisement(at indexPath: IndexPath) -> Advertisement {
         advertisements[indexPath.item]
     }
     
-    func tapOnProduct(at indexPath: IndexPath) {
+    public func tapOnProduct(at indexPath: IndexPath) {
         output.goToProductInfoModule(id: advertisements[indexPath.item].id)
     }
 }

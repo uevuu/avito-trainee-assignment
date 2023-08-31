@@ -149,7 +149,7 @@ final class ProductViewController: UIViewController {
     
     // MARK: - Private
     @objc private func backButtonTapped() {
-        output.backToPreviosModule()
+        output.backToPreviousModule()
     }
     
     @objc private func reloadButtonTapped() {
@@ -166,14 +166,14 @@ extension ProductViewController: ProductViewInput {
         productImageView.loadImage(advertisementDetail.imageUrl)
         priceLabel.text = advertisementDetail.price
         titleLabel.text = advertisementDetail.title
-        addressLabel.text = "Адрес"
+        addressLabel.text = R.Strings.sellerContact
         addressInfoLabel.text = "\(advertisementDetail.location), \(advertisementDetail.address)"
-        contactLabel.text = "Контакты продавца"
+        contactLabel.text = R.Strings.sellerContact
         phoneInfoLabel.text = advertisementDetail.phoneNumber
         emailInfoLabel.text = advertisementDetail.email
-        descriptionLabel.text = "Описание"
+        descriptionLabel.text = R.Strings.description
         descriptionInfoLabel.text = advertisementDetail.description
-        advertisementNumberLabel.text = "Объявления №\(advertisementDetail.id)"
+        advertisementNumberLabel.text = R.Strings.adsNumber(advertisementDetail.id)
         dateInfoLabel.text = advertisementDetail.createdDate
     }
     

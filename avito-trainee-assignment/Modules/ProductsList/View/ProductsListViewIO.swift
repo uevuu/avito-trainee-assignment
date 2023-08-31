@@ -8,14 +8,14 @@
 import UIKit
 
 // MARK: - ProductsListViewInput
-protocol ProductsListViewInput: AnyObject {
+public protocol ProductsListViewInput: AnyObject {
     func showProducts()
     func showError()
     func showLoading()
 }
 
 // MARK: - ProductsListViewOutput
-protocol ProductsListViewOutput: AnyObject {
+public protocol ProductsListViewOutput: AnyObject {
     func loadData()
     func getAdvertisementsCount() -> Int
     func getAdvertisement(at indexPath: IndexPath) -> Advertisement

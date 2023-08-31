@@ -15,6 +15,12 @@ enum R {
     enum Strings {
         static let recommendations = "Рекомендации"
         static let tryAgain = "Попробуй еще раз"
+        static let address = "Адрес"
+        static let sellerContact = "Контакты продавца"
+        static let description = "Описание"
+        static func adsNumber(_ number: String) -> String {
+            "Объявления №\(number)"
+        }
     }
     
     enum Fonts {

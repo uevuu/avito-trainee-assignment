@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B450E1E2AA0F75700533173 /* MockProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B450E1D2AA0F75700533173 /* MockProductView.swift */; };
+		8B450E202AA0F78700533173 /* MockProductCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B450E1F2AA0F78700533173 /* MockProductCoordinator.swift */; };
+		8B450E222AA0F7B900533173 /* MockAdvertisementDetailNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B450E212AA0F7B900533173 /* MockAdvertisementDetailNetworkService.swift */; };
+		8B450E252AA0FAF800533173 /* ProductsListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B450E242AA0FAF800533173 /* ProductsListPresenterTests.swift */; };
+		8B450E272AA103C000533173 /* MockAdvertisementsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B450E262AA103C000533173 /* MockAdvertisementsNetworkService.swift */; };
+		8B450E292AA103D400533173 /* MockProductsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B450E282AA103D400533173 /* MockProductsListCoordinator.swift */; };
+		8B450E2B2AA103E900533173 /* MockProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B450E2A2AA103E900533173 /* MockProductsListView.swift */; };
+		8B450E302AA1063800533173 /* ProductCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B450E2F2AA1063800533173 /* ProductCoordinator.swift */; };
+		8B450E332AA1089500533173 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B450E322AA1089500533173 /* ImageLoader.swift */; };
 		8B7BCC2C2A9788170069084F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7BCC2B2A9788170069084F /* AppDelegate.swift */; };
 		8B7BCC2E2A9788170069084F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7BCC2D2A9788170069084F /* SceneDelegate.swift */; };
 		8B7BCC352A97881D0069084F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7BCC342A97881D0069084F /* Assets.xcassets */; };
@@ -23,6 +32,7 @@
 		8B8D5EE12A9FD4B200D95F39 /* AdvertisementsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5EE02A9FD4B200D95F39 /* AdvertisementsNetworkService.swift */; };
 		8B8D5EE32A9FD4D000D95F39 /* AdvertisementDetailNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5EE22A9FD4D000D95F39 /* AdvertisementDetailNetworkService.swift */; };
 		8B8D5EE52A9FD50000D95F39 /* AdvertisementDetailNetworkServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5EE42A9FD50000D95F39 /* AdvertisementDetailNetworkServiceImp.swift */; };
+		8B8D5EEF2AA0026900D95F39 /* ProductPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5EEE2AA0026900D95F39 /* ProductPresenterTests.swift */; };
 		8B9879392A99F10C00BEAB9B /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9879382A99F10C00BEAB9B /* Resources.swift */; };
 		8B98793B2A9A684700BEAB9B /* ProductsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B98793A2A9A684700BEAB9B /* ProductsListPresenter.swift */; };
 		8B98793E2A9A86EE00BEAB9B /* HeaderTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B98793D2A9A86EE00BEAB9B /* HeaderTextLabel.swift */; };
@@ -41,7 +51,26 @@
 		8BC4BB082A9C1A5E00DC5138 /* ProductsListPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC4BB072A9C1A5E00DC5138 /* ProductsListPresenterOutput.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8B8D5EF02AA0026900D95F39 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B7BCC202A9788170069084F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B7BCC272A9788170069084F;
+			remoteInfo = "avito-trainee-assignment";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		8B450E1D2AA0F75700533173 /* MockProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductView.swift; sourceTree = "<group>"; };
+		8B450E1F2AA0F78700533173 /* MockProductCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductCoordinator.swift; sourceTree = "<group>"; };
+		8B450E212AA0F7B900533173 /* MockAdvertisementDetailNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAdvertisementDetailNetworkService.swift; sourceTree = "<group>"; };
+		8B450E242AA0FAF800533173 /* ProductsListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListPresenterTests.swift; sourceTree = "<group>"; };
+		8B450E262AA103C000533173 /* MockAdvertisementsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAdvertisementsNetworkService.swift; sourceTree = "<group>"; };
+		8B450E282AA103D400533173 /* MockProductsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductsListCoordinator.swift; sourceTree = "<group>"; };
+		8B450E2A2AA103E900533173 /* MockProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductsListView.swift; sourceTree = "<group>"; };
+		8B450E2F2AA1063800533173 /* ProductCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCoordinator.swift; sourceTree = "<group>"; };
+		8B450E322AA1089500533173 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		8B7BCC282A9788170069084F /* avito-trainee-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "avito-trainee-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7BCC2B2A9788170069084F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B7BCC2D2A9788170069084F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +89,8 @@
 		8B8D5EE02A9FD4B200D95F39 /* AdvertisementsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementsNetworkService.swift; sourceTree = "<group>"; };
 		8B8D5EE22A9FD4D000D95F39 /* AdvertisementDetailNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementDetailNetworkService.swift; sourceTree = "<group>"; };
 		8B8D5EE42A9FD50000D95F39 /* AdvertisementDetailNetworkServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementDetailNetworkServiceImp.swift; sourceTree = "<group>"; };
+		8B8D5EEC2AA0026900D95F39 /* avito-trainee-assignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "avito-trainee-assignmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8D5EEE2AA0026900D95F39 /* ProductPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPresenterTests.swift; sourceTree = "<group>"; };
 		8B9879382A99F10C00BEAB9B /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		8B98793A2A9A684700BEAB9B /* ProductsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListPresenter.swift; sourceTree = "<group>"; };
 		8B98793D2A9A86EE00BEAB9B /* HeaderTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTextLabel.swift; sourceTree = "<group>"; };
@@ -86,14 +117,75 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8B8D5EE92AA0026900D95F39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B450E1C2AA0F73A00533173 /* ProductPresenterTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B450E2D2AA104DD00533173 /* Mocks */,
+				8B8D5EEE2AA0026900D95F39 /* ProductPresenterTests.swift */,
+			);
+			path = ProductPresenterTests;
+			sourceTree = "<group>";
+		};
+		8B450E232AA0FAA900533173 /* ProductsListPresenterTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B450E2C2AA104D000533173 /* Mocks */,
+				8B450E242AA0FAF800533173 /* ProductsListPresenterTests.swift */,
+			);
+			path = ProductsListPresenterTests;
+			sourceTree = "<group>";
+		};
+		8B450E2C2AA104D000533173 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8B450E282AA103D400533173 /* MockProductsListCoordinator.swift */,
+				8B450E2A2AA103E900533173 /* MockProductsListView.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8B450E2D2AA104DD00533173 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8B450E1F2AA0F78700533173 /* MockProductCoordinator.swift */,
+				8B450E1D2AA0F75700533173 /* MockProductView.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8B450E2E2AA1050400533173 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8B450E212AA0F7B900533173 /* MockAdvertisementDetailNetworkService.swift */,
+				8B450E262AA103C000533173 /* MockAdvertisementsNetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8B450E312AA106A000533173 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8B8D5ED52A9FD3BE00D95F39 /* Endpoint.swift */,
+				8B8D5ED72A9FD3ED00D95F39 /* RequestError.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		8B7BCC1F2A9788170069084F = {
 			isa = PBXGroup;
 			children = (
 				8B7BCC2A2A9788170069084F /* avito-trainee-assignment */,
-				8B7BCC392A97881D0069084F /* Info.plist */,
+				8B8D5EED2AA0026900D95F39 /* avito-trainee-assignmentTests */,
 				8B7BCC292A9788170069084F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				8B7BCC282A9788170069084F /* avito-trainee-assignment.app */,
+				8B8D5EEC2AA0026900D95F39 /* avito-trainee-assignmentTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,13 +202,13 @@
 		8B7BCC2A2A9788170069084F /* avito-trainee-assignment */ = {
 			isa = PBXGroup;
 			children = (
-				8B8D5EE72A9FD72600D95F39 /* SupportingFiles */,
 				8B8D5EE62A9FD70000D95F39 /* Application */,
 				8B8D5EC82A9F4E5400D95F39 /* Components */,
 				8BA68D062A9901CD00EE25DF /* Helpers */,
-				8BA68CF42A98B1D600EE25DF /* Modules */,
 				8BA68CF32A98B1C900EE25DF /* Models */,
+				8BA68CF42A98B1D600EE25DF /* Modules */,
 				8B7BCC3F2A978E500069084F /* Services */,
+				8B8D5EE72A9FD72600D95F39 /* SupportingFiles */,
 			);
 			path = "avito-trainee-assignment";
 			sourceTree = "<group>";
@@ -126,6 +219,7 @@
 				8B8D5EDD2A9FD48200D95F39 /* AdvertisementDetailNetworkService */,
 				8B8D5EDC2A9FD47700D95F39 /* AdvertisementsNetworkService */,
 				8B8D5ED42A9FD39F00D95F39 /* NetworkService */,
+				8B450E322AA1089500533173 /* ImageLoader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -168,9 +262,8 @@
 		8B8D5ED42A9FD39F00D95F39 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				8B450E312AA106A000533173 /* Helpers */,
 				8B7BCC472A978F730069084F /* NetworkService.swift */,
-				8B8D5ED52A9FD3BE00D95F39 /* Endpoint.swift */,
-				8B8D5ED72A9FD3ED00D95F39 /* RequestError.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -205,17 +298,28 @@
 		8B8D5EE72A9FD72600D95F39 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				8B7BCC392A97881D0069084F /* Info.plist */,
 				8B7BCC342A97881D0069084F /* Assets.xcassets */,
 				8B7BCC362A97881D0069084F /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		8B8D5EED2AA0026900D95F39 /* avito-trainee-assignmentTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B450E2E2AA1050400533173 /* Services */,
+				8B450E232AA0FAA900533173 /* ProductsListPresenterTests */,
+				8B450E1C2AA0F73A00533173 /* ProductPresenterTests */,
+			);
+			path = "avito-trainee-assignmentTests";
+			sourceTree = "<group>";
+		};
 		8B9879372A99F07100BEAB9B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8BC4BAF92A9B50C900DC5138 /* ProductViewController.swift */,
 				8BC4BAFB2A9B510100DC5138 /* ProductViewIO.swift */,
+				8BC4BAF92A9B50C900DC5138 /* ProductViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -262,6 +366,7 @@
 			children = (
 				8BC4BAFE2A9B57CE00DC5138 /* Presenter */,
 				8B9879372A99F07100BEAB9B /* View */,
+				8B450E2F2AA1063800533173 /* ProductCoordinator.swift */,
 			);
 			path = "ProductInfo ";
 			sourceTree = "<group>";
@@ -280,8 +385,8 @@
 		8BA68CFE2A98B30F00EE25DF /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				8B98793A2A9A684700BEAB9B /* ProductsListPresenter.swift */,
 				8BC4BB072A9C1A5E00DC5138 /* ProductsListPresenterOutput.swift */,
+				8B98793A2A9A684700BEAB9B /* ProductsListPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -315,8 +420,8 @@
 		8BC4BAFE2A9B57CE00DC5138 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				8BC4BAFF2A9B57D700DC5138 /* ProductPresenter.swift */,
 				8BC4BB052A9C1A4C00DC5138 /* ProductPresenterOutput.swift */,
+				8BC4BAFF2A9B57D700DC5138 /* ProductPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -341,6 +446,24 @@
 			productReference = 8B7BCC282A9788170069084F /* avito-trainee-assignment.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8B8D5EEB2AA0026900D95F39 /* avito-trainee-assignmentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B8D5EF22AA0026900D95F39 /* Build configuration list for PBXNativeTarget "avito-trainee-assignmentTests" */;
+			buildPhases = (
+				8B8D5EE82AA0026900D95F39 /* Sources */,
+				8B8D5EE92AA0026900D95F39 /* Frameworks */,
+				8B8D5EEA2AA0026900D95F39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B8D5EF12AA0026900D95F39 /* PBXTargetDependency */,
+			);
+			name = "avito-trainee-assignmentTests";
+			productName = "avito-trainee-assignmentTests";
+			productReference = 8B8D5EEC2AA0026900D95F39 /* avito-trainee-assignmentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -353,6 +476,10 @@
 				TargetAttributes = {
 					8B7BCC272A9788170069084F = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					8B8D5EEB2AA0026900D95F39 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 8B7BCC272A9788170069084F;
 					};
 				};
 			};
@@ -370,6 +497,7 @@
 			projectRoot = "";
 			targets = (
 				8B7BCC272A9788170069084F /* avito-trainee-assignment */,
+				8B8D5EEB2AA0026900D95F39 /* avito-trainee-assignmentTests */,
 			);
 		};
 /* End PBXProject section */
@@ -381,6 +509,13 @@
 			files = (
 				8B7BCC382A97881D0069084F /* LaunchScreen.storyboard in Resources */,
 				8B7BCC352A97881D0069084F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B8D5EEA2AA0026900D95F39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +532,7 @@
 				8BA68D012A98B33E00EE25DF /* ProductsListViewIO.swift in Sources */,
 				8B8D5ECB2A9F4E6F00D95F39 /* CommonLabel.swift in Sources */,
 				8BA68CFA2A98B20600EE25DF /* AdvertisementDetail.swift in Sources */,
+				8B450E332AA1089500533173 /* ImageLoader.swift in Sources */,
 				8B8D5ED02A9F4EA400D95F39 /* CommonButton.swift in Sources */,
 				8BA68D092A99020900EE25DF /* UICollectionView+Extensions.swift in Sources */,
 				8B7BCC2C2A9788170069084F /* AppDelegate.swift in Sources */,
@@ -416,6 +552,7 @@
 				8B8D5EE52A9FD50000D95F39 /* AdvertisementDetailNetworkServiceImp.swift in Sources */,
 				8B8D5EDF2A9FD48D00D95F39 /* AdvertisementsNetworkServiceImp.swift in Sources */,
 				8B8D5EE12A9FD4B200D95F39 /* AdvertisementsNetworkService.swift in Sources */,
+				8B450E302AA1063800533173 /* ProductCoordinator.swift in Sources */,
 				8B7BCC2E2A9788170069084F /* SceneDelegate.swift in Sources */,
 				8BC4BB062A9C1A4D00DC5138 /* ProductPresenterOutput.swift in Sources */,
 				8B98793B2A9A684700BEAB9B /* ProductsListPresenter.swift in Sources */,
@@ -424,7 +561,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8B8D5EE82AA0026900D95F39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B450E272AA103C000533173 /* MockAdvertisementsNetworkService.swift in Sources */,
+				8B450E292AA103D400533173 /* MockProductsListCoordinator.swift in Sources */,
+				8B450E2B2AA103E900533173 /* MockProductsListView.swift in Sources */,
+				8B450E252AA0FAF800533173 /* ProductsListPresenterTests.swift in Sources */,
+				8B450E1E2AA0F75700533173 /* MockProductView.swift in Sources */,
+				8B450E222AA0F7B900533173 /* MockAdvertisementDetailNetworkService.swift in Sources */,
+				8B450E202AA0F78700533173 /* MockProductCoordinator.swift in Sources */,
+				8B8D5EEF2AA0026900D95F39 /* ProductPresenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B8D5EF12AA0026900D95F39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B7BCC272A9788170069084F /* avito-trainee-assignment */;
+			targetProxy = 8B8D5EF02AA0026900D95F39 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8B7BCC362A97881D0069084F /* LaunchScreen.storyboard */ = {
@@ -561,7 +721,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "avito-trainee-assignment/Info.plist";
+				INFOPLIST_FILE = "avito-trainee-assignment/SupportingFiles/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -589,7 +749,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "avito-trainee-assignment/Info.plist";
+				INFOPLIST_FILE = "avito-trainee-assignment/SupportingFiles/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -605,6 +765,40 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8B8D5EF32AA0026900D95F39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nikita.avito-trainee-assignmentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/avito-trainee-assignment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/avito-trainee-assignment";
+			};
+			name = Debug;
+		};
+		8B8D5EF42AA0026900D95F39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nikita.avito-trainee-assignmentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/avito-trainee-assignment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/avito-trainee-assignment";
 			};
 			name = Release;
 		};
@@ -625,6 +819,15 @@
 			buildConfigurations = (
 				8B7BCC3D2A97881D0069084F /* Debug */,
 				8B7BCC3E2A97881D0069084F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B8D5EF22AA0026900D95F39 /* Build configuration list for PBXNativeTarget "avito-trainee-assignmentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B8D5EF32AA0026900D95F39 /* Debug */,
+				8B8D5EF42AA0026900D95F39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

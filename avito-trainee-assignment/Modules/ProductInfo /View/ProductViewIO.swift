@@ -8,15 +8,15 @@
 import UIKit
 
 // MARK: - ProductViewInput
-protocol ProductViewInput: AnyObject {
+public protocol ProductViewInput: AnyObject {
     func showDetail(_ advertisementDetail: AdvertisementDetail)
     func showError()
     func showLoading()
 }
 
 // MARK: - ProductViewOutput
-protocol ProductViewOutput: AnyObject {
+public protocol ProductViewOutput: AnyObject {
     func loadData()
-    func backToPreviosModule()
+    func backToPreviousModule()
 }
 

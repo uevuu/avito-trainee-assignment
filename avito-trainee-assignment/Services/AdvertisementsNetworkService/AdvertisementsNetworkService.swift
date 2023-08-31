@@ -6,6 +6,6 @@
 //
 
 // MARK: - AdvertisementsNetworkService
-protocol AdvertisementsNetworkService: AnyObject {
+public protocol AdvertisementsNetworkService: AnyObject {
     func getAdvertisements(completion: @escaping(Result<Advertisements, RequestError>) -> Void)
 }

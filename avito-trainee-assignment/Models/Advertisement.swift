@@ -7,13 +7,29 @@
 
 import Foundation
 
-struct Advertisement: Codable {
+public struct Advertisement: Decodable {
     let id: String
     let title: String
     let price: String
     let location: String
     let imageUrl: String
     let createdDate: String
+    
+    public init(
+        id: String,
+        title: String,
+        price: String,
+        location: String,
+        imageUrl: String,
+        createdDate: String
+    ) {
+        self.id = id
+        self.title = title
+        self.price = price
+        self.location = location
+        self.imageUrl = imageUrl
+        self.createdDate = createdDate
+    }
     
     enum CodingKeys: String, CodingKey {
         case id

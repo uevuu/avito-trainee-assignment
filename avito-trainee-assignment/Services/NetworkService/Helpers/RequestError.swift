@@ -6,7 +6,7 @@
 //
 
 // MARK: - RequestError
-enum RequestError: Error {
+public enum RequestError: Error {
     case decodingError
     case invalidURL
     case noData
