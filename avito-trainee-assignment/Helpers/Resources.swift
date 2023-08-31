@@ -9,7 +9,7 @@ import UIKit
 
 enum R {
     enum Colors {
-        
+        static let blue = UIColor(named: "blue")
     }
     
     enum Strings {

@@ -20,7 +20,7 @@ final class CommonButton: UIButton {
         }
     
     private func setup() {
-        setTitleColor(.blue, for: .normal)
+        setTitleColor(R.Colors.blue, for: .normal)
         translatesAutoresizingMaskIntoConstraints = false
     }
 }
